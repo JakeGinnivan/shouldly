@@ -1,3 +1,5 @@
+using System;
+using ApprovalTests.Reporters;
 using NUnit.Framework;
 using Shouldly;
 using TestStack.ConventionTests;
@@ -18,9 +20,23 @@ namespace ShouldlyConvention.Tests
         }
 
         [Test]
+        [UseReporter(typeof(DiffReporter))]
         public void ShouldHaveCustomMessageOverloads()
         {
-            Convention.Is(new ShouldlyMethodsShouldHaveCustomMessageOverload(), _shouldlyMethodClasses);
+            Convention.IsWithApprovedExeptions(new ShouldlyMethodsShouldHaveCustomMessageOverload(), _shouldlyMethodClasses);
+        }
+
+        [Test]
+        public void VerifyItWorks()
+        {
+            var ex = Should.Throw<ConventionFailedException>(() =>
+            {
+                var convention = new ShouldlyMethodsShouldHaveCustomMessageOverload();
+                var types = Types.InCollection(new[] { typeof(TestWithMissingOverloads) }, "Sample");
+                Convention.Is(convention, types);
+            });
+
+            ex.Message.ShouldContain("ShouldAlsoFail");
         }
 
         [Test]
@@ -28,5 +44,16 @@ namespace ShouldlyConvention.Tests
         {
             Convention.Is(new ShouldThrowMatchesExtensionsConvention(), _shouldlyMethodClasses);
         }
+    }
+
+    public static class TestWithMissingOverloads
+    {
+        public static void ShouldTest(this object foo) { }
+
+        public static void ShouldAlsoFail(this object foo) { }
+        public static void ShouldAlsoFail(this object foo, string customMessage) { }
+        public static void ShouldAlsoFail(this object foo, Func<string> customMessage) { }
+        public static void ShouldAlsoFail(this object foo, int param) { }
+        public static void ShouldAlsoFail(this object foo, int param, Func<string> customMessage) { }
     }
 }

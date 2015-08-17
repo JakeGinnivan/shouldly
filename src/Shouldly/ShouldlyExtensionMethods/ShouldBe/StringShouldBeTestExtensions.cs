@@ -13,7 +13,23 @@ namespace Shouldly
         /// </summary>
         public static void ShouldBe(this string actual, string expected)
         {
-            ShouldBe(actual, expected, Case.Sensitive, () => null);
+            ShouldBe(actual, expected, () => null);
+        }
+
+        /// <summary>
+        /// Perform a case sensitive string comparison
+        /// </summary>
+        public static void ShouldBe(this string actual, string expected, string customMessage)
+        {
+            ShouldBe(actual, expected, () => customMessage);
+        }
+
+        /// <summary>
+        /// Perform a case sensitive string comparison
+        /// </summary>
+        public static void ShouldBe(this string actual, string expected, [InstantHandle] Func<string> customMessage)
+        {
+            ShouldBe(actual, expected, Case.Sensitive, customMessage);
         }
 
         /// <summary>

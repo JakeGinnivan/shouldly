@@ -99,7 +99,7 @@
     <Compile Include="ShouldlyExtensionMethods\ShouldBe\DateTimeShouldBeTestExtensions.cs" />
     <Compile Include="ShouldlyExtensionMethods\ShouldBe\NumericShouldBeTestExtensions.cs" />
     <Compile Include="ShouldlyExtensionMethods\ShouldSatisfyAllConditionsTestExtensions.cs" />
-    <Compile Include="ShouldlyExtensionMethods\ShouldCompleteInExtensions.cs" />
+    <Compile Include="ShouldStaticClasses\ShouldCompleteInExtensions.cs" />
     <Compile Include="DifferenceHighlighting\ItemDifferenceHighlighter.cs" />
     <Compile Include="DifferenceHighlighting\EnumerableDifferenceHighlighter.cs" />
     <Compile Include="DifferenceHighlighting\DifferenceHighlighter.cs" />
