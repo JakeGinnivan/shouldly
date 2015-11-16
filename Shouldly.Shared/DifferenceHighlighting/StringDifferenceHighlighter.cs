@@ -100,7 +100,7 @@ namespace Shouldly.DifferenceHighlighting
                 {
                     if (caseSensitivity == Case.Insensitive)
                     {
-                        isEqual = StringComparer.InvariantCultureIgnoreCase.Equals(actualValue[index].ToString(), expectedValue[index].ToString());
+                        isEqual = StringComparer.OrdinalIgnoreCase.Equals(actualValue[index].ToString(), expectedValue[index].ToString());
                     }
                     else
                     {

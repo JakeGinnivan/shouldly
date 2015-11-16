@@ -1,0 +1,1 @@
+D:\_code\shouldly\Shouldly.Dnx\obj\Debug\Shouldly.Dnx.csprojResolveAssemblyReference.cache

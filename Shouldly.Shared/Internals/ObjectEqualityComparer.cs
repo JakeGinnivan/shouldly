@@ -2,7 +2,9 @@
 
 namespace Shouldly
 {
+#if !DOTNET
     [Serializable]
+#endif
     class ObjectEqualityComparer<T> : System.Collections.Generic.EqualityComparer<T>
     {
         public override bool Equals(T x, T y)

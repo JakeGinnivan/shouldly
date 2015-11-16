@@ -369,12 +369,6 @@
     <Compile Include="ShouldBeUnique\StringArrayScenario.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Shouldly\Shouldly.csproj">
-      <Project>{CF49E8A3-57E1-4F43-B2DC-7092D2B7677F}</Project>
-      <Name>Shouldly</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
     <None Include="sn.snk" />
   </ItemGroup>
@@ -390,4 +384,5 @@
   </Target>
   -->
   <ItemGroup />
+  <Import Project="..\..\Shouldly.Shared\Shouldly.Shared.projitems" Label="Shared" />
 </Project>

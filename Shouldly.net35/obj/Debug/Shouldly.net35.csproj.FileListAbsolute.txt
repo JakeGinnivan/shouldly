@@ -1,0 +1,5 @@
+D:\_code\shouldly\Shouldly.net35\bin\Debug\Shouldly.dll
+D:\_code\shouldly\Shouldly.net35\bin\Debug\Shouldly.pdb
+D:\_code\shouldly\Shouldly.net35\obj\Debug\Shouldly.net35.csprojResolveAssemblyReference.cache
+D:\_code\shouldly\Shouldly.net35\obj\Debug\Shouldly.dll
+D:\_code\shouldly\Shouldly.net35\obj\Debug\Shouldly.pdb

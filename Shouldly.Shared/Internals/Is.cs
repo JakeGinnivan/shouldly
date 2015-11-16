@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 
 namespace Shouldly
@@ -175,7 +176,11 @@ namespace Shouldly
         {
             if (o == null)
                 return false;
+#if DOTNET
             return expected.IsInstanceOfType(o);
+#else
+            return expected.IsInstanceOfType(o);
+#endif
         }
 
         public static bool StringMatchingRegex(string actual, string regexPattern)
