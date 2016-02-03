@@ -27,8 +27,13 @@ namespace Shouldly.Configuration
             {
                 callingFrame = stackTrace.GetFrame(i++);
             } while (callingFrame.GetMethod().IsShouldlyMethod() || IsCompilerGenerated(callingFrame.GetMethod()));
-
+            
             callingFrame = stackTrace.GetFrame(i + Offset - 1);
+            // Then skip until we find a non-compiler generated frame
+            while (IsCompilerGenerated(callingFrame.GetMethod()))
+            {
+                callingFrame = stackTrace.GetFrame(i++);
+            }
             return new TestMethodInfo(callingFrame);
         }
 
